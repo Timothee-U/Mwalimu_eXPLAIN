@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaterialiAI - CBC Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-primary-light">
+
+    <header class="header-container">
+        <div class="header-content max-width">
+            <div class="logo-group">
+                <div class="logo-icon-bg">
+                    <i data-lucide="book-open" class="logo-icon"></i>
+                </div>
+                <div>
+                    <h1 class="logo-title">MaterialiAI</h1>
+                    <p class="logo-subtitle">CBC Learning Materials in 10 Seconds</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content max-width">
+        <div class="info-banner">
+            <p>
+                <span class="font-semibold">✨ AI-Powered CBC Content:</span> Generate complete, competency-aligned learning materials designed for Kenyan classrooms
+            </p>
+        </div>
+
+        <div id="form-container" class="card form-card">
+            <form id="generation-form" class="space-y-5">
+                <div class="grid-2-col">
+                    <div>
+                        <label for="grade" class="form-label">Grade Level</label>
+                        <select id="grade" name="grade" class="form-input">
+                            <option value="Grade 4">Grade 4</option>
+                            <option value="Grade 1">Grade 1</option>
+                            <option value="Grade 9">Grade 9</option>
+                            </select>
+                    </div>
+                    <div>
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" name="subject" class="form-input">
+                            <option value="Science">Science</option>
+                            <option value="Mathematics">Mathematics</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="topic" class="form-label">Topic <span class="text-red-500">*</span></label>
+                    <input type="text" id="topic" name="topic" placeholder="e.g., Photosynthesis, Fractions, Water Cycle" class="form-input" required>
+                </div>
+
+                <div>
+                    <label for="materialType" class="form-label">Material Type</label>
+                    <select id="materialType" name="materialType" class="form-input">
+                        <option value="Worksheet">Worksheet</option>
+                        <option value="Lesson Plan">Lesson Plan</option>
+                        </select>
+                </div>
+
+                <div>
+                    <label for="constraints" class="form-label">Constraints (Optional)</label>
+                    <input type="text" id="constraints" name="constraints" placeholder="e.g., No lab equipment, 60 students, outdoor space available" class="form-input">
+                    <p class="text-xs text-gray-500 mt-1">
+                        Mention class size, available resources, or special requirements
+                    </p>
+                </div>
+
+                <div id="error-message" class="error-box" style="display: none;"></div>
+
+                <button type="submit" id="generate-btn" class="btn-primary">
+                    <i data-lucide="sparkles" class="icon-left"></i>
+                    Generate CBC Material
+                </button>
+            </form>
+        </div>
+
+        <div id="dynamic-content-area">
+            <div id="loading-state" class="card loading-card" style="display: none;">
+                <div class="spinner"></div>
+                <p class="text-medium">Creating your CBC material...</p>
+                <p class="text-small mt-2">This usually takes 10-15 seconds</p>
+            </div>
+
+            <div id="result-panel" class="card result-card" style="display: none;">
+                <div class="result-header">
+                    <div>
+                        <h2 id="result-title" class="result-title">Your CBC Material</h2>
+                        <p id="result-subtitle" class="result-subtitle"></p>
+                    </div>
+                    <div class="button-group">
+                        <button id="download-pdf-btn" class="btn-success">
+                            <i data-lucide="download" class="icon-left"></i>
+                            Print/PDF
+                        </button>
+                        <button id="new-material-btn" class="btn-secondary">
+                            <i data-lucide="refresh-cw" class="icon-left"></i>
+                            New
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="material-content" class="material-output">
+                    </div>
+
+                <div class="competency-footer">
+                    <p class="comp-label">CBC Competencies Addressed:</p>
+                    <div class="comp-tags">
+                        <span class="tag">Critical Thinking</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Creativity</span>
+                        <span class="tag">Communication</span>
+                        <span class="tag">Collaboration</span>
+                        <span class="tag">Digital Literacy</span>
+                        <span class="tag">Learning to Learn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="features-footer" class="features-grid">
+            <div class="card feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">CBC-Aligned</h3>
+                <p class="feature-text">Every material meets CBC competency requirements</p>
+            </div>
+            <div class="card feature-card">
+                <div class="feature-icon">🇰🇪</div>
+                <h3 class="feature-title">Kenyan Context</h3>
+                <p class="feature-text">Uses local names, places, and real-world examples</p>
+            </div>
+            <div class="card feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Ready in Seconds</h3>
+                <p class="feature-text">From idea to printable material in under 15 seconds</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="max-width">
+            <p>Empowering 300,000+ Kenyan teachers with AI-generated CBC materials</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons after loading the HTML
+        lucide.createIcons();
+    </script>
+</body>
+</html>
